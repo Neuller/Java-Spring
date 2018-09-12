@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Aula POO2 - Pratica</title>
+        <meta http-equiv="Content-Type"
+              content="text/html; charset=UTF-8" /> 
+    </head>
+    <body>
+        <form action="#" th:action="@{/Cadastrar}"
+              th:object="${ClienteBeans}" method="post">
+            <label>Nome:</label>
+            <input type="text" th:field="*{Nome}"></input><br></br>
+            <label>Tipo de Logradouro:</label>
+            <select th:field="*{TipoLogradouro}">
+                <option value="Rua"></option>
+                <option value="Avenida">Avenida</option>
+            </select><br></br>
+            <label>Logradouro:</label>
+            <input type="text" th:field="*{Logradouro}"></input><br></br>
+            <label>Numero do Logradouro:</label>
+            <input type="number" th:field="*{NumLogradouro}"></input><br></br>
+            <label>Telefone Residencial:</label>
+            <input type="text" th:field="*{TelResidencial}"></input><br></br>
+            <label>Telefone Comercial:</label>
+            <input type="text" th:field="*{TelComercial}"></input><br></br>
+            <label>Telefone Celular:</label>
+            <input type="text" th:field="*{TelCelular}"></input><br></br>
+            <label>CPF:</label>
+            <input type="text" th:field="*{CPF}"></input><br></br>
+            <label>RG:</label>
+            <input type="text" th:field="*{RG}"></input><br></br>
+            <label>Profissão:</label>
+            <select th:field="*{Profissao}">
+                <option value="">Selecione a Profissão</option>
+                <option th:each="Profissao : ${profissoes}" th:value="${Profissao}"
+                        th:text="${Profissao}"></option>
+            </select><br></br>
+            <button type="submit">Cadastrar</button>
+        </form>
+    </body>
+</html>
